@@ -1,0 +1,14 @@
+
+name: Random Entries
+description: Randomly choose an entry or entries
+
+version: 1.0
+
+callbacks:
+    post_init: $RandomEntries::RandomEntries::Util::post_init
+
+tags:
+    filters:
+        Entries:
+            random:
+                handler: $RandomEntries::RandomEntries::Tags::_filter_entries_random
