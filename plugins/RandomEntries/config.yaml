@@ -1,8 +1,7 @@
-
 name: Random Entries
 description: Randomly choose an entry or entries
 
-version: 1.0
+version: 1.0.1
 
 callbacks:
     post_init: $RandomEntries::RandomEntries::Util::post_init
