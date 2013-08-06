@@ -1,4 +1,3 @@
-
 package RandomEntries::Tags;
 
 use strict;
@@ -17,14 +16,17 @@ sub _filter_entries_random {
     my $od = MT->config->ObjectDriver;
     $od =~ s/^.*:://;
     my $rf = $rnd_function{$od};
-    
+
     return unless $rf;
-    
+
     $args->{sort_by} = [ { column => \$rf } ];
     $ctx->{args}->{direction} = 'descend';
-    
+
+    # Prevents MT5 from throwing an error if no limit is specified, but doesn't
+    # actually enforce the limit?
+    $args->{limit} = '1';
+
     1;
 }
-
 
 1;
